@@ -1,1 +1,2 @@
-# sistema_salario
+# sistema_salario 
+Este código HTML e PHP é um sistema para calcular o salário de vendedores de acordo com as metas de vendas. O formulário HTML solicita o nome do vendedor, a meta semanal e a meta mensal de vendas. Quando o formulário é enviado, o PHP recebe esses dados, calcula o salário do vendedor com base nas regras da empresa e mostra o resultado na mesma página. É útil para empresas que desejam implementar um sistema de pagamento baseado em mérito para seus vendedores.
