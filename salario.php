@@ -11,6 +11,7 @@
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
+    background-color: rgb(102,205,170);
 }
 
 h2 {
@@ -67,6 +68,9 @@ p {
     text-align: center;
     color: #555;
 }
+button{
+    background-color: rgb(102,205,170);
+}
 
     </style>
 </head>
@@ -87,27 +91,27 @@ p {
 
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Recuperando os valores do formulário
+        
         $nome_vendedor = $_POST['nome_vendedor'];
         $meta_semanal = $_POST['meta_semanal'];
         $meta_mensal = $_POST['meta_mensal'];
 
-        // Definindo os valores
-        $salario_minimo = 1500; // Salário mínimo dos vendedores
-        $valor_meta_semanal = 0.01 * $meta_semanal; // Valor sobre a meta semanal (1%)
-        $valor_excedente_semanal = $meta_semanal > 20000 ? 0.05 * ($meta_semanal - 20000) : 0; // Valor sobre o excedente de meta semanal (5%)
-        $valor_excedente_mensal = 0; // Valor inicial da bonificação de excedente mensal
+       
+        $salario_minimo = 1500; 
+        $valor_meta_semanal = 0.01 * $meta_semanal; 
+        $valor_excedente_semanal = $meta_semanal > 20000 ? 0.05 * ($meta_semanal - 20000) : 0; 
+        $valor_excedente_mensal = 0; 
 
-        // Verifica se todas as metas semanais foram cumpridas
+        
         if ($meta_semanal >= 20000) {
-            // Calcula o valor do excedente de meta mensal (10% sobre o valor excedente)
+            
             $valor_excedente_mensal = 0.10 * (($meta_semanal * 4) - $meta_mensal);
         }
 
-        // Calcula o salário final
+        
         $salario_final = $salario_minimo + ($valor_meta_semanal * 4) + ($valor_excedente_semanal * 4) + $valor_excedente_mensal;
 
-        // Exibe o resultado
+        
         echo "<h3>Resultado do Cálculo de Salário</h3>";
         echo "<p>O salário final do vendedor $nome_vendedor é de R$ " . number_format($salario_final, 2, ',', '.') . "</p>";
     }
